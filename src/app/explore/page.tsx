@@ -1,5 +1,11 @@
 import Link from "next/link";
-
+interface Product {
+  id: number;
+  title: string;
+  thumbnail: string;
+  description: string;
+  price: number;
+}
 async function getProducts() {
   const res = await fetch('https://dummyjson.com/products?limit=6&select=title,price,thumbnail,description', {
     cache: 'no-store'
@@ -22,7 +28,7 @@ export default async function ExplorePage() {
       </div>
       
       <div className="row">
-        {data.products.map((product: any) => (
+        {data.products.map((product: Product) => (
           <div key={product.id} className="col-md-4 mb-4">
             <div className="card h-100 shadow-sm border-0">
               <img 
