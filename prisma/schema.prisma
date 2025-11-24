@@ -12,4 +12,5 @@ model Wishlist {
   name      String
   price     Int
   note      String?
+  isBought  Boolean @default(false)
 }
